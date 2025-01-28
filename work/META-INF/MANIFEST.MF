@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Created-By: Maven JAR Plugin 3.4.1
+Build-Jdk-Spec: 23
+Class-Path: libs/jackson-databind-2.18.2.jar libs/jackson-core-2.18.2.ja
+ r libs/jackson-annotations-2.18.2.jar
+Main-Class: mn.dae.pc.jjson.javaJson
+
