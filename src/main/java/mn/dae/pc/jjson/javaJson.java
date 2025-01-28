@@ -1,6 +1,6 @@
 package mn.dae.pc.jjson;
 
-import com.fasterxml.jackson.datatype.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.File;
 import mn.dae.pc.jjson.utils.StringFile;
