@@ -3,7 +3,11 @@ package mn.dae.pc.jjson;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
+
 import mn.dae.pc.jjson.utils.StringFile;
+import mn.dae.pc.jjson.data.Email;
 
 public class javaJson {
 
@@ -32,9 +36,10 @@ public class javaJson {
             String htmlContent = StringFile.ReadFile(inputFile);
 
             // Create the JSON object
-            Document document = new Document();
-            document.setTitle(String.format("Test of %s", inputFile));
-            document.setHtmlContent(htmlContent.toString());
+            Map<String, String> data = new HashMap<>(2);
+            data.put("title", String.format("Test of %s", inputFile));
+            data.put("body", htmlContent);
+            Email document = new Email("paul.carlton@dae.mn", data);
 
             // Convert to JSON and save to a file
             try {
@@ -42,7 +47,7 @@ public class javaJson {
                 String jsonOutput = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(document);
 
                 // Print JSON to the console
-                System.out.println("Generated JSON:");
+                System.out.println("Generated JSON...");
                 System.out.println(jsonOutput);
 
                 // Save to file
@@ -54,28 +59,6 @@ public class javaJson {
             }
         } catch (Exception e) {
             System.out.println("Error processing HTML: " + e.getMessage());
-        }
-    }
-
-    // Static inner class to represent the document structure
-    static class Document {
-        private String title;
-        private String htmlContent;
-
-        public String getTitle() {
-            return title;
-        }
-
-        public void setTitle(String title) {
-            this.title = title;
-        }
-
-        public String getHtmlContent() {
-            return htmlContent;
-        }
-
-        public void setHtmlContent(String htmlContent) {
-            this.htmlContent = htmlContent;
         }
     }
 }

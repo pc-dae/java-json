@@ -45,7 +45,7 @@
                     <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
-                            <classpathPrefix>libs/</classpathPrefix>
+                            <classpathPrefix>../libs/</classpathPrefix>
                             <mainClass>mn.dae.pc.jjson.javaJson</mainClass>
                         </manifest>
                     </archive>
